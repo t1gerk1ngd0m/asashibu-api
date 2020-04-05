@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーションの概要
+朝渋アプリ開発プロジェクトAPIディレクトリ
 
-Things you may want to cover:
+## Version
+Ruby 2.6.3
+Ruby on Rails 6.0.2
 
-* Ruby version
+## セットアップ
+rbenvを用いてRubyとRailsの開発環境を構築の上、下記を実行
 
-* System dependencies
+1. `git clone git@github.com:t1gerk1ngd0m/asashibu-api.git`
+2. `bundle install`
+3. プロジェクトのルート直下に.envファイルを作成し、下記を記述
 
-* Configuration
+```
+DB_USERNAME = free word(ここは何でも良い)
+DB_PASSWORD = free word(ここは何でも良い)
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+4. `rails db:create`
+5. `rails db:migrate`
+6. `rails s`でサーバを立ち上げ、`localhost:3000`にアクセス
