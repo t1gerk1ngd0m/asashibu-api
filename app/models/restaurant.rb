@@ -6,6 +6,7 @@
 #  name          :string           default(""), not null
 #  opening_hours :time             not null
 #  external_link :string
+#  image         :string           default(""), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
@@ -13,5 +14,6 @@ class Restaurant < ApplicationRecord
   validates_presence_of %i(
     name
     opening_hours
+    image
   )
 end

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_080620) do
     t.string "name", default: "", null: false
     t.time "opening_hours", null: false
     t.string "external_link"
+    t.string "image", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

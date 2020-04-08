@@ -4,6 +4,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.string :name, null: false, default: ""
       t.time :opening_hours, null: false, default: ""
       t.string :external_link
+      t.string :image, null: false, default: ""
 
       t.timestamps
     end

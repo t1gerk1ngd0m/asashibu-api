@@ -6,6 +6,7 @@
 #  name          :string           default(""), not null
 #  opening_hours :time             not null
 #  external_link :string
+#  image         :string           default(""), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
@@ -19,6 +20,10 @@ RSpec.describe Restaurant, type: :model do
     end
     it 'opening_hoursは必須' do
       invalid_restaurant = FactoryBot.build(:restaurant, opening_hours: nil)
+      expect(invalid_restaurant.save).to be_falsey
+    end
+    it 'imageは必須' do
+      invalid_restaurant = FactoryBot.build(:restaurant, image: nil)
       expect(invalid_restaurant.save).to be_falsey
     end
   end
