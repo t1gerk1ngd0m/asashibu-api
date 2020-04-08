@@ -36,6 +36,7 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
     params.require(:restaurant).permit(
       :name,
       :opening_hours,
+      :nearest_station,
       :external_link,
       :image
     )
