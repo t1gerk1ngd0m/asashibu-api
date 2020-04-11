@@ -5,21 +5,21 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    # services:
-    #   postgres:
-    #     image: postgres:12-alpine
-    #     ports:
-    #       - 5432:5432
-    #     env:
-    #       POSTGRES_USER: pguser
-    #       POSTGRES_PASSWORD: password
+    services:
+      postgres:
+        image: postgres:12-alpine
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: pguser
+          POSTGRES_PASSWORD: password
     container:
       image: ruby:2.6.3
-      # env:
-      #   RAILS_ENV: test
-      #   DB_HOST: postgres
-      #   DB_USER: pguser
-      #   DB_PASSWORD: password
+      env:
+        RAILS_ENV: test
+        DB_HOST: postgres
+        DB_USER: pguser
+        DB_PASSWORD: password
     steps:
       - uses: actions/checkout@v1
       - name: Prepare bundler
