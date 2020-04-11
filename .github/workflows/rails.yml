@@ -14,7 +14,7 @@ jobs:
           POSTGRES_USER: pguser
           POSTGRES_PASSWORD: password
     container:
-      image: ruby:2.6.5
+      image: ruby:2.6.3
       env:
         RAILS_ENV: test
         DB_HOST: postgres
