@@ -27,10 +27,10 @@ jobs:
           gem install bundler
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
-      # - name: Prepare database
-      #   run: |
-      #     bin/rails db:create
-      #     bin/rails db:schema:load
+      - name: Prepare database
+        run: |
+          bin/rails db:create
+          bin/rails db:schema:load
       # - uses: actions/checkout@v2
       # - name: Set up YARN and NodeJS
       #   run: |
