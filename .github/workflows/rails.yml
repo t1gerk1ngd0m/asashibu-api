@@ -1,0 +1,47 @@
+name: Rails
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:12-alpine
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: pguser
+          POSTGRES_PASSWORD: password
+    container:
+      image: ruby:2.6.5
+      env:
+        RAILS_ENV: test
+        DB_HOST: postgres
+        DB_USER: pguser
+        DB_PASSWORD: password
+    steps:
+      - uses: actions/checkout@v1
+      - name: Prepare bundler
+        run: |
+          gem install bundler
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Prepare database
+        run: |
+          bin/rails db:create
+          bin/rails db:schema:load
+      - uses: actions/checkout@v2
+      - name: Set up YARN and NodeJS
+        run: |
+          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+          echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+          curl -sL https://deb.nodesource.com/setup_12.x | bash -
+          apt install -y yarn nodejs
+      - name: Build
+        run: |
+          bundle -j 4
+          bin/rails yarn:install assets:precompile
+      - name: Run test
+        run: |
+          bundle exec rspec
