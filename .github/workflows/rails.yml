@@ -32,16 +32,16 @@ jobs:
       #     bin/rails db:create
       #     bin/rails db:schema:load
       # - uses: actions/checkout@v2
-      - name: Set up YARN and NodeJS
-        run: |
-          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-          echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-          curl -sL https://deb.nodesource.com/setup_12.x | bash -
-          apt install -y yarn nodejs
+      # - name: Set up YARN and NodeJS
+      #   run: |
+      #     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      #     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+      #     curl -sL https://deb.nodesource.com/setup_12.x | bash -
+      #     apt install -y yarn nodejs
       - name: Build
         run: |
           bundle -j 4
-          bin/rails yarn:install assets:precompile
+          # bin/rails yarn:install assets:precompile
       - name: Run test
         run: |
           bundle exec rspec
