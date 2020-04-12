@@ -17,8 +17,10 @@ rbenvを用いてRubyとRailsの開発環境を構築の上、下記を実行
 ```
 DB_USERNAME = free word(ここは何でも良い)
 DB_PASSWORD = free word(ここは何でも良い)
+DB_HOST = localhost
 ```
 
 4. `rails db:create`
 5. `rails db:migrate`
-6. `rails s`でサーバを立ち上げ、`localhost:3000`にアクセス
+6. `rails db:seed_fu`
+7. `rails s`でサーバを立ち上げ、`localhost:3000`にアクセス
