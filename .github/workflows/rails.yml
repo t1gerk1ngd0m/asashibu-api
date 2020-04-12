@@ -18,7 +18,7 @@ jobs:
       env:
         RAILS_ENV: test
         DB_HOST: postgres
-        DB_USER: pguser
+        DB_USERNAME: pguser
         DB_PASSWORD: password
     steps:
       - uses: actions/checkout@v1
