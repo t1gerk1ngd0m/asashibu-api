@@ -5,7 +5,8 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   # GET /api/v1/restaurants
   #
   def index
-    @restaurants = Restaurants.all
+    @restaurants = Restaurant.all
+    render json: @restaurants
   end
 
   #
