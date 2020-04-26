@@ -25,12 +25,13 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   # GET /api/v1/restaurants/:id
   #
   def show
+    render json: @restaurant
   end
 
   private
 
   def set_restaurants_params
-    @restaurant = Restaurants.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def restaurant_params
