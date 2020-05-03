@@ -13,8 +13,7 @@
 #
 class Restaurant < ApplicationRecord
   validates_presence_of %i(
-    name
     opening_hours
-    image
+    external_link
   )
 end

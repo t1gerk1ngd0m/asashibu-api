@@ -11,6 +11,9 @@ gem 'dotenv-rails'
 gem 'seed-fu'
 gem 'rack-cors'
 
+# Scraping
+gem 'mechanize'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'

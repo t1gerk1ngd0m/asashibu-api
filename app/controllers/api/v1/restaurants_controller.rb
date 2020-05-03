@@ -10,11 +10,12 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   end
 
   #
-  # POST /api/v1/restaurants/:id
+  # POST /api/v1/restaurants
   #
   def create
     @restaurant = Restaurants.new(restaurant_params)
     if @restaurant.save
+      CrawlingTabelogService.new(@restaurant).call
       render :create
     else
       render json: @restaurant.errors, status: :unprocessable_entity
@@ -36,11 +37,8 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
 
   def restaurant_params
     params.require(:restaurant).permit(
-      :name,
       :opening_hours,
-      :nearest_station,
-      :external_link,
-      :image
+      :external_link
     )
   end
 end
