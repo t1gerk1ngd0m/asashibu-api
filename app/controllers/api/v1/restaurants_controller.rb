@@ -13,9 +13,8 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   # POST /api/v1/restaurants
   #
   def create
-    @restaurant = Restaurants.new(restaurant_params)
+    @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
-      CrawlingTabelogService.new(@restaurant).call
       render :create
     else
       render json: @restaurant.errors, status: :unprocessable_entity
