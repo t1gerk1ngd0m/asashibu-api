@@ -14,6 +14,7 @@
 #
 class Restaurant < ApplicationRecord
   has_many :restaurant_images
+  mount_uploader :image, RestaurantImageUploader
 
   validates_presence_of %i(
     opening_hours
