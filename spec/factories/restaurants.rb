@@ -18,6 +18,6 @@ FactoryBot.define do
     opening_hours            { "07:30:00" }
     nearest_station          { "渋谷駅" }
     sequence(:external_link) { "https://exmaple.com" }
-    sequence(:image)         { "https://exmaple.com" }
+    remote_image_url         { "https://tabelog.com/imgview/original?id=r6288747363" }
   end
 end
