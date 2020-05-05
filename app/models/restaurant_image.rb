@@ -9,5 +9,11 @@
 #  updated_at    :datetime         not null
 #
 class RestaurantImage < ApplicationRecord
+  mount_uploader :name, RestaurantImageUploader
+
   belongs_to :restaurant
+
+  validates_presence_of %i(
+    name
+  )
 end

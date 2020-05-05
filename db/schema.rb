@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_025401) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.time "opening_hours", null: false
-    t.time "closing_hours", null: false
+    t.time "closing_hours"
     t.string "nearest_station", default: "", null: false
     t.string "external_link"
     t.string "image", default: "", null: false

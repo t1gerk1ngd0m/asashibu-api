@@ -5,7 +5,7 @@
 #  id              :bigint           not null, primary key
 #  name            :string           default(""), not null
 #  opening_hours   :time             not null
-#  closing_hours   :time             not null
+#  closing_hours   :time
 #  nearest_station :string           default(""), not null
 #  external_link   :string
 #  image           :string           default(""), not null
@@ -22,6 +22,10 @@ RSpec.describe Restaurant, type: :model do
     end
     it 'external_linkは必須' do
       invalid_restaurant = FactoryBot.build(:restaurant, external_link: nil)
+      expect(invalid_restaurant.save).to be_falsey
+    end
+    it 'nearest_stationは必須' do
+      invalid_restaurant = FactoryBot.build(:restaurant, nearest_station: nil)
       expect(invalid_restaurant.save).to be_falsey
     end
   end
