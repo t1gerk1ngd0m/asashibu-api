@@ -6,16 +6,17 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   #
   def index
     @restaurants = Restaurant.all
-    render json: @restaurants
+    render :index
   end
 
   #
-  # POST /api/v1/restaurants/:id
+  # POST /api/v1/restaurants
   #
   def create
-    @restaurant = Restaurants.new(restaurant_params)
+    @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       render :create
+      # render json: @restaurant
     else
       render json: @restaurant.errors, status: :unprocessable_entity
     end
@@ -25,7 +26,7 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   # GET /api/v1/restaurants/:id
   #
   def show
-    render json: @restaurant
+    render :show
   end
 
   private
@@ -38,6 +39,7 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
     params.require(:restaurant).permit(
       :name,
       :opening_hours,
+      :closing_hours,
       :nearest_station,
       :external_link,
       :image

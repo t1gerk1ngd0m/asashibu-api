@@ -5,6 +5,7 @@
 #  id              :bigint           not null, primary key
 #  name            :string           default(""), not null
 #  opening_hours   :time             not null
+#  closing_hours   :time
 #  nearest_station :string           default(""), not null
 #  external_link   :string
 #  image           :string           default(""), not null
@@ -15,16 +16,16 @@ require 'rails_helper'
 
 RSpec.describe Restaurant, type: :model do
   describe 'バリデーション' do
-    it 'nameは必須' do
-      invalid_restaurant = FactoryBot.build(:restaurant, name: nil)
-      expect(invalid_restaurant.save).to be_falsey
-    end
     it 'opening_hoursは必須' do
       invalid_restaurant = FactoryBot.build(:restaurant, opening_hours: nil)
       expect(invalid_restaurant.save).to be_falsey
     end
-    it 'imageは必須' do
-      invalid_restaurant = FactoryBot.build(:restaurant, image: nil)
+    it 'external_linkは必須' do
+      invalid_restaurant = FactoryBot.build(:restaurant, external_link: nil)
+      expect(invalid_restaurant.save).to be_falsey
+    end
+    it 'nearest_stationは必須' do
+      invalid_restaurant = FactoryBot.build(:restaurant, nearest_station: nil)
       expect(invalid_restaurant.save).to be_falsey
     end
   end
