@@ -3,6 +3,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
     create_table :restaurants do |t|
       t.string :name, null: false, default: ""
       t.time :opening_hours, null: false, default: ""
+      t.time :closing_hours, null: false, default: ""
       t.string :nearest_station, null: false, default: ""
       t.string :external_link
       t.string :image, null: false, default: ""

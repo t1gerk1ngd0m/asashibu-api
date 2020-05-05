@@ -5,6 +5,7 @@
 #  id              :bigint           not null, primary key
 #  name            :string           default(""), not null
 #  opening_hours   :time             not null
+#  closing_hours   :time             not null
 #  nearest_station :string           default(""), not null
 #  external_link   :string
 #  image           :string           default(""), not null
