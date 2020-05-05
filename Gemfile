@@ -11,6 +11,7 @@ gem 'dotenv-rails'
 gem 'seed-fu'
 gem 'rack-cors'
 gem 'carrierwave'
+gem 'fog'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
