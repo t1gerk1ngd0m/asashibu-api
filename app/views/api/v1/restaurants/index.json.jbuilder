@@ -6,6 +6,10 @@ json.set! :restaurants do
     json.closing_hours restaurant.closing_hours
     json.nearest_station restaurant.nearest_station
     json.external_link restaurant.external_link
-    json.image ("http://#{request.host}:#{request.port.to_s}" + restaurant.image.url)
+    if Rails.env.production?
+      json.image restaurant.image.url
+    else
+      json.image ("http://#{request.host}:#{request.port.to_s}" + restaurant.image.url)
+    end
   end
 end
